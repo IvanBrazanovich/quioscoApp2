@@ -355,4 +355,4 @@ const productos = [
   },
 ];
 
-export { productos };
+module.exports = { productos };

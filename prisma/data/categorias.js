@@ -25,4 +25,4 @@ const categorias = [
   },
 ];
 
-export { categorias };
+module.exports = { categorias };

@@ -5,10 +5,7 @@ export default function Home() {
     <div>
       <Head>
         <title>GuitarLA - Tienda de Guitarras</title>
-        <meta
-          name="description"
-          content="Tienda de Guitarras e información sobre música"
-        />
+        <meta name="description" content="Quiosco de comida" />
       </Head>
 
       <main></main>
