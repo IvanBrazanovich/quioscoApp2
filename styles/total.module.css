@@ -1,0 +1,36 @@
+.total {
+  margin: 3rem 0;
+}
+
+.total h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.total__input {
+  margin: 0 0 2rem;
+  padding: 0.2rem 0.4rem;
+  font-size: 1.2rem;
+  background-color: #e2e8f0;
+  border: none;
+}
+
+.total__label {
+  font-size: 1.2rem;
+  margin: 2rem 0 0;
+  text-transform: uppercase;
+  font-weight: 800;
+  display: block;
+}
+
+.form__button {
+  background-color: #6366f1;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem 0.4rem;
+  border-radius: 3px;
+  font-weight: 800;
+}

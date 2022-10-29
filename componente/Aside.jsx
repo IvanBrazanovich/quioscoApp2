@@ -3,10 +3,11 @@ import React, { useContext } from "react";
 import styles from "../styles/aside.module.css";
 import imgLogo from "../public/img/logo.svg";
 import { QuioscoContext } from "../context/QuioscoProvider";
+import { useRouter } from "next/router";
 
 const Aside = () => {
   const { changeActual, categorias, actual } = useContext(QuioscoContext);
-
+  const router = useRouter();
   return (
     <div className={styles.aside}>
       <div className={styles.aside__imgWrapper}>
@@ -23,7 +24,10 @@ const Aside = () => {
           {categorias?.map((item, index) => {
             return (
               <li
-                onClick={() => changeActual(item)}
+                onClick={() => {
+                  changeActual(item);
+                  router.push("/");
+                }}
                 className={`${styles.list__categoria}  ${
                   actual.icono === item.icono
                     ? styles["list__categoria--active"]

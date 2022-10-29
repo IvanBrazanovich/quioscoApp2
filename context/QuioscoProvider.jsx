@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const QuioscoContext = createContext();
 
@@ -6,6 +7,7 @@ const QuioscoProvider = ({ children }) => {
   const [categorias, setCategorias] = useState([]);
   const [actual, setActual] = useState({});
   const [carrito, setCarrito] = useState([]);
+  const [total, setTotal] = useState(0);
   const [modalProducto, setModalProducto] = useState({});
 
   useEffect(() => {
@@ -30,7 +32,6 @@ const QuioscoProvider = ({ children }) => {
 
   const openModal = (producto) => {
     const arrCarrito = carrito.find((item) => item.id === producto.id);
-    console.log(arrCarrito);
 
     if (arrCarrito) {
       setModalProducto(arrCarrito);
@@ -42,8 +43,16 @@ const QuioscoProvider = ({ children }) => {
   const closeModal = () => {
     setModalProducto({});
   };
+  const calcularTotal = () => {
+    const tot = carrito.reduce(
+      (total, item) => item.precio * item.cantidad + total,
+      0
+    );
 
-  const agregarCarrito = (producto) => {
+    setTotal(tot);
+  };
+
+  const changeCarrito = (producto) => {
     const arrCarrito = carrito.some((item) => item.id === producto.id);
 
     if (arrCarrito) {
@@ -52,22 +61,38 @@ const QuioscoProvider = ({ children }) => {
       );
 
       setCarrito(newArr);
+      toast.success("Se editó correctamente");
     } else {
+      toast.success("Se agregó correctamente");
       setCarrito([...carrito, producto]);
     }
+
+    calcularTotal();
+
     closeModal();
+  };
+
+  const eliminarCarrito = (id) => {
+    const newArr = carrito.filter((item) => item.id !== id);
+
+    setCarrito(newArr);
+    calcularTotal();
+    toast.success("Se eliminó correctamente");
   };
 
   return (
     <QuioscoContext.Provider
       value={{
         closeModal,
-        agregarCarrito,
+        changeCarrito,
         openModal,
         modalProducto,
         changeActual,
         categorias,
         actual,
+        total,
+        eliminarCarrito,
+        carrito,
       }}
     >
       {children}

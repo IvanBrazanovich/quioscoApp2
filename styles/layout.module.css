@@ -18,11 +18,6 @@
   justify-content: space-around;
 }
 
-.barra__textos p {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
 .barra__porcentaje {
   height: 5px;
   width: 90%;
@@ -32,10 +27,16 @@
   position: relative;
 }
 
-.barra__porcentaje::after {
-  content: "";
+.barra__porcentajeFull {
   position: absolute;
   height: 100%;
-  width: 50%;
   background-color: #fbbf24;
+}
+
+.barra__pasosLink {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }

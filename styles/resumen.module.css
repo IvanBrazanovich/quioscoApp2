@@ -1,0 +1,68 @@
+.listadoContainer__producto {
+  box-shadow: 1px 2px 2px 1px rgba(163, 163, 163, 0.651);
+  display: flex;
+  gap: 2rem;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.producto__imgWrapper {
+  position: relative;
+  width: 10rem;
+  aspect-ratio: 2/3;
+}
+
+.listadoContainer__producto img {
+  object-fit: cover;
+}
+
+.producto__info {
+  flex-grow: 1;
+}
+
+.producto__nombre {
+  margin: 1rem 0 0.4rem;
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.producto__precio {
+  color: #fbbf24;
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+
+.producto__cantidad {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.producto__buttons {
+  display: flex;
+  flex-direction: column;
+  width: max(15%, 10rem);
+  justify-content: center;
+  gap: 2rem;
+}
+
+.buttons__button {
+  padding: 0.3rem;
+  border-radius: 4px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons__button[type="editar"] {
+  background-color: #3b82f6;
+}
+
+.buttons__button[type="eliminar"] {
+  background-color: #dc2626;
+}

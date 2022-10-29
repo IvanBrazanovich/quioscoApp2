@@ -4,7 +4,7 @@ import { QuioscoContext } from "../context/QuioscoProvider";
 import styles from "../styles/modal.module.css";
 
 const Modal = () => {
-  const { closeModal, agregarCarrito, modalProducto } =
+  const { closeModal, changeCarrito, modalProducto } =
     useContext(QuioscoContext);
   const [cantidad, setCantidad] = useState(1);
 
@@ -52,7 +52,7 @@ const Modal = () => {
               ></ion-icon>
             </div>
             <button
-              onClick={() => agregarCarrito({ ...modalProducto, cantidad })}
+              onClick={() => changeCarrito({ ...modalProducto, cantidad })}
               className={styles.producto__button}
             >
               Agregar

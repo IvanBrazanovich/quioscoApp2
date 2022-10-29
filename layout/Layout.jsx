@@ -1,10 +1,13 @@
 import Head from "next/head";
 import Script from "next/script";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Aside from "../componente/Aside";
 import Modal from "../componente/Modal";
 import { QuioscoContext } from "../context/QuioscoProvider";
 import styles from "../styles/layout.module.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Pasos from "../componente/Pasos";
 
 const Layout = ({ children, title = "" }) => {
   const { modalProducto } = useContext(QuioscoContext);
@@ -33,18 +36,10 @@ const Layout = ({ children, title = "" }) => {
           <Aside />
         </aside>
         <section className={`${styles.layout__sectionPrincipal}`}>
-          <div className="listadoProductos__barra">
-            <div className={styles.barra__textos}>
-              <p>Menú</p>
-              <p>Resúmen</p>
-              <p>Total</p>
-            </div>
-            <div className={styles.barra__porcentaje}></div>
-          </div>
-
+          <Pasos />
           {children}
         </section>
-
+        <ToastContainer />
         {modalProducto?.nombre ? <Modal /> : null}
       </main>
     </>
