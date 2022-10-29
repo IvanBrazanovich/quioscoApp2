@@ -1,0 +1,41 @@
+.layout {
+  display: flex;
+}
+
+.layout__aside {
+  flex-grow: 1;
+  max-width: 25%;
+  min-width: 15rem;
+}
+
+.layout__sectionPrincipal {
+  min-width: 75%;
+  padding: 3rem 1rem;
+}
+
+.barra__textos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.barra__textos p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.barra__porcentaje {
+  height: 5px;
+  width: 90%;
+  margin: 1rem auto 0;
+  border-radius: 3px;
+  background-color: #e2e8f0;
+  position: relative;
+}
+
+.barra__porcentaje::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  background-color: #fbbf24;
+}
