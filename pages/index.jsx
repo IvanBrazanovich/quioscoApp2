@@ -7,6 +7,7 @@ import Image from "next/image";
 
 export default function Home() {
   const {
+    openModal,
     actual: { icono, productos, nombre },
   } = useContext(QuioscoContext);
 
@@ -37,7 +38,12 @@ export default function Home() {
                 <h3 className={styles.producto__precio}>
                   $ {producto.precio.toFixed(2)}
                 </h3>
-                <button className={styles.producto__button}>Agregar</button>
+                <button
+                  onClick={() => openModal(producto)}
+                  className={styles.producto__button}
+                >
+                  Agregar
+                </button>
               </div>
             );
           })}
